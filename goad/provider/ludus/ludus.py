@@ -71,7 +71,7 @@ class LudusProvider(Provider):
     def _get_range_id(self):
         """Determine the range ID to use for deployment, based on config and user defaults."""
         if self.major_version >= 2:
-            if self.range_id == 'None':
+            if str.lower(self.range_id) == 'none' or self.range_id == '':
                 Log.info('Range ID is not set, falling back to default rangeID')
                 self.range_id = self.default_range
             else:
